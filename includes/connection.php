@@ -4,9 +4,8 @@ class dbControl
     private $host = 'localhost';
     private $user = 'root';
     private $password = 'root';
-    private $database = 'proyecto_sis1';
-    private $port = '3307';
-
+    private $database = 'proyecto_sis2';
+    
     private $con;
 
     function __construct()
@@ -18,7 +17,7 @@ class dbControl
     }
     function connectDB()
     {
-        $con = mysqli_connect($this->host, $this->user, $this->password, $this->database, $this->port) or die("falle");
+        $con = mysqli_connect($this->host, $this->user, $this->password, $this->database) or die("falle");
         return $con;
     }
     function selectDB()
