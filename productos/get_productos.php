@@ -8,6 +8,6 @@ session_start();
 $id = $_SESSION['id'];
 
 $query = "SELECT id_producto, descripcion, cantidad, precio 
-FROM producto WHERE fk_id_usuario = $id";
+FROM producto WHERE fk_id_usuario = $id AND eliminado = 0";
 $productos = $db->fetchAll($query);
 echo json_encode($productos);
