@@ -2,10 +2,10 @@
 class dbControl
 {
     private $host = 'localhost';
-    private $user = 'root';
-    private $password = 'root';
+    private $user = 'username';
+    private $password = 'password';
     private $database = 'proyecto_sis2';
-    
+
     private $con;
 
     function __construct()
@@ -54,21 +54,24 @@ class dbControl
         return mysqli_fetch_array($result);
     }
 
-    function insert($query){
+    function insert($query)
+    {
         $this->doQuery($query);
         return mysqli_insert_id($this->con);
     }
-    function showError(){
+    function showError()
+    {
         return mysqli_error($this->con);
     }
 
-    function fetchAll($query){
-      $result = $this->doQuery($query);
-      $objetos = array();
-      while ($obj = mysqli_fetch_object($result)) {
-        array_push($objetos,$obj);
-      }
-      return $objetos;
+    function fetchAll($query)
+    {
+        $result = $this->doQuery($query);
+        $objetos = array();
+        while ($obj = mysqli_fetch_object($result)) {
+            array_push($objetos, $obj);
+        }
+        return $objetos;
     }
 }
 
